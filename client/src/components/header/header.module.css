@@ -1,0 +1,55 @@
+.header {
+    padding: 10px 30px 10px;
+    box-shadow: 0 6px 4px -4px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo {
+    width: 90px;
+    height: 46px;
+    margin-right: 16px;
+}
+
+.header_btn {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    width: 100px;
+    height: 30px;
+}
+
+.header_crud {
+    color: #fff;
+    height: 30px;
+    font-size: 12px;
+    width: 80px;
+    background-color: black;
+    text-align: center;
+}
+
+.header_crud_text {
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.header_logo_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.149);
+    z-index: 1;
+}
