@@ -16,8 +16,8 @@ class CreateHotDogForm extends Component {
     });
   };
 
-  handleSubmit = async event => {
-    event.preventDefault();
+  handleSubmit = async e => {
+    e.preventDefault();
     const { name, description, price, image } = this.state;
     if (name === "" || description === "" || price === null || image === "") {
       return;

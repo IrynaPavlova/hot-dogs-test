@@ -8,7 +8,7 @@ class Header extends Component {
     isOpenModal: false
   };
 
-  handleChangeModal = () => {
+  handleChangeModal = e => {
     this.setState(state => ({ isOpenModal: !state.isOpenModal }));
   };
   render() {
@@ -17,7 +17,7 @@ class Header extends Component {
         <div className={styles.header_logo_wrapper}>
           <img className={styles.header_logo} src={logo} alt="Logo" />
           <div className={styles.header_crud}>
-            <p className={styles.header_crud_text}>Crud</p>
+            <h1 className={styles.header_crud_text}>Crud</h1>
           </div>
         </div>
         <button className={styles.header_btn} onClick={this.handleChangeModal}>

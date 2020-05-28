@@ -13,11 +13,12 @@
 }
 
 .header_btn {
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
-    width: 100px;
+    width: 120px;
     height: 30px;
 }
 
@@ -31,6 +32,7 @@
 }
 
 .header_crud_text {
+    font-size: 16px;
     line-height: 30px;
     text-transform: uppercase;
 }
