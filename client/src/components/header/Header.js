@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./header.module.css";
 import logo from "../../assets/img/logo.png";
-import CreateHotDogForm from "../createHotDogForm/CreateHotDogForm";
+import CreateForm from "../createForm/CreateForm";
 
 class Header extends Component {
   state = {
@@ -25,7 +25,7 @@ class Header extends Component {
         </button>
         {this.state.isOpenModal && (
           <div className={styles.overlay}>
-            <CreateHotDogForm isOpen={this.handleChangeModal} />
+            <CreateForm isOpen={this.handleChangeModal} />
           </div>
         )}
       </div>

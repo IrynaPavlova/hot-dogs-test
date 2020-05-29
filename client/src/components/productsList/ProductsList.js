@@ -1,18 +1,33 @@
 import React, { Component } from "react";
 import styles from "./productsList.module.css";
 import services from "../../services/services";
+import ProductsListItem from "../productsListItem/ProductsListItem";
 
 class ProductsList extends Component {
   state = {
     products: []
   };
 
-  componentDidMount() {
+  getProducts() {
     services.getAllProducts().then(data =>
       this.setState({
         products: data.data.products
       })
     );
+  }
+
+  componentDidMount() {
+    this.getProducts();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.products !== this.state.products) {
+      //this.getProducts();
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.products !== nextState.products;
   }
 
   render() {
@@ -22,19 +37,7 @@ class ProductsList extends Component {
         <h2 className={styles.products_title}>All hot-dogs</h2>
         <ul className={styles.products_list}>
           {products.map(item => (
-            <li className={styles.products_list_item} key={item.id}>
-              <img
-                className={styles.products_list_item_img}
-                src={item.image}
-                alt="hot-dog"
-              />
-              <h3 className={styles.products_list_item_title}>{item.name}</h3>
-              <p className={styles.products_list_item_price}>{item.price} $</p>
-              <p className={styles.products_list_item_description}>
-                {item.description}
-              </p>
-              <button className={styles.products_list_item_btn}>Edit</button>
-            </li>
+            <ProductsListItem key={item.id} item={item} />
           ))}
         </ul>
       </div>

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import styles from "./createHotDogForm.module.css";
+import styles from "./createForm.module.css";
 import services from "../../services/services";
+import { Field, reduxForm } from "redux-form";
 
-class CreateHotDogForm extends Component {
+class CreateForm extends Component {
   state = {
     name: "",
     description: "",
@@ -37,17 +38,20 @@ class CreateHotDogForm extends Component {
   };
 
   render() {
+    // const { handleSubmit, reset } = this.props;
+    // const submit = values => console.log("values", values);
     return (
       <div className={styles.form_wrapper}>
         <p className={styles.form_text}>Add new hot-dog</p>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <Field
             type="text"
+            component="input"
             placeholder="Name"
             name="name"
             onChange={this.handleChange}
           />
-          <input
+          <textarea
             type="text"
             placeholder="Description"
             name="description"
@@ -66,22 +70,28 @@ class CreateHotDogForm extends Component {
             name="image"
             onChange={this.handleChange}
           />
-          <button
-            className={styles.form_btn}
-            type="reset"
-            onClick={() => {
-              this.props.isOpen();
-            }}
-          >
-            No Thanks
-          </button>
-          <button className={styles.form_btn} type="submit">
-            Add
-          </button>
+          <div className={styles.btn_wrapper}>
+            <button
+              className={styles.form_btn}
+              type="reset"
+              onClick={() => {
+                this.props.isOpen();
+              }}
+            >
+              No Thanks
+            </button>
+            <button className={styles.form_btn} type="submit">
+              Add
+            </button>
+          </div>
         </form>
       </div>
     );
   }
 }
 
-export default CreateHotDogForm;
+CreateForm = reduxForm({
+  form: "create"
+})(CreateForm);
+
+export default CreateForm;

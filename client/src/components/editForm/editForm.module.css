@@ -1,0 +1,14 @@
+.editForm_btn {
+    color: black;
+    border: none;
+    height: 30px;
+    font-size: 14px;
+    width: 100%;
+    background-color: rgb(233, 230, 230);
+    cursor: pointer;
+    outline: none;
+}
+
+.editForm_btn:nth-of-type(-n+2) {
+    margin-bottom: 5px;
+}
