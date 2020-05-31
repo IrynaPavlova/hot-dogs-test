@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./createForm.module.css";
 import services from "../../services/services";
 import { Field, reduxForm } from "redux-form";
+import Input from "../input/Input";
 
 class CreateForm extends Component {
   state = {
@@ -37,18 +38,22 @@ class CreateForm extends Component {
     this.setState({ name: "", description: "", price: null, image: "" });
   };
 
+  correctInput = input => {
+    const names = this.props.products.map(elem => elem.name);
+    return names.includes(input) ? "Such name already exists" : undefined;
+  };
+
   render() {
-    // const { handleSubmit, reset } = this.props;
-    // const submit = values => console.log("values", values);
     return (
       <div className={styles.form_wrapper}>
         <p className={styles.form_text}>Add new hot-dog</p>
         <form onSubmit={this.handleSubmit}>
           <Field
             type="text"
-            component="input"
+            component={Input}
             placeholder="Name"
             name="name"
+            validate={[this.correctInput]}
             onChange={this.handleChange}
           />
           <textarea

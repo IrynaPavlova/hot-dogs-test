@@ -11,6 +11,7 @@ class Header extends Component {
   handleChangeModal = e => {
     this.setState(state => ({ isOpenModal: !state.isOpenModal }));
   };
+
   render() {
     return (
       <div className={styles.header}>
@@ -25,7 +26,10 @@ class Header extends Component {
         </button>
         {this.state.isOpenModal && (
           <div className={styles.overlay}>
-            <CreateForm isOpen={this.handleChangeModal} />
+            <CreateForm
+              isOpen={this.handleChangeModal}
+              products={this.props.products}
+            />
           </div>
         )}
       </div>

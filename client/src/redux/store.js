@@ -1,4 +1,15 @@
-import { createStore } from "redux";
-import reducer from "./reducer";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import ReduxThunk from "redux-thunk";
+import { products } from "./reducers";
+import { reducer as formReducer } from "redux-form";
 
-export const store = createStore(reducer);
+const rootReducer = combineReducers({
+  products: products,
+  form: formReducer
+});
+
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(ReduxThunk))
+);
