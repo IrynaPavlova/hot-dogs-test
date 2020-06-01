@@ -11,9 +11,9 @@ class ProductsList extends Component {
         <h2 className={styles.products_title}>All hot-dogs</h2>
         <ul className={styles.products_list}>
           {this.props.products &&
-            this.props.products.map(item => (
-              <ProductsListItem key={item.id} item={item} />
-            ))}
+            this.props.products
+              .sort((prev, next) => prev.id - next.id)
+              .map(item => <ProductsListItem key={item.id} item={item} />)}
         </ul>
       </div>
     );

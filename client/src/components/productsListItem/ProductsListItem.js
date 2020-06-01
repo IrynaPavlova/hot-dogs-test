@@ -7,7 +7,7 @@ class ProductsListItem extends Component {
     isOpenEditForm: false
   };
 
-  handleChangeEditForm = e => {
+  handleChangeEditForm = () => {
     this.setState(state => ({ isOpenEditForm: !state.isOpenEditForm }));
   };
 

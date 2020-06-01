@@ -6,7 +6,6 @@ export default {
   async getAllProducts() {
     try {
       const data = await axios.get("/products");
-      //console.log("data", data);
       return data;
     } catch (error) {
       console.log(error);
@@ -17,7 +16,6 @@ export default {
   async getProductsById(id) {
     try {
       const data = await axios.get(`/products/${id}`);
-      //console.log("data", data);
       return data;
     } catch (error) {
       console.log(error);
@@ -28,8 +26,7 @@ export default {
   async createProduct(obj) {
     try {
       const data = await axios.post("/products/", obj);
-      //console.log("data", data);
-      return data;
+      return data.data.product;
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -39,8 +36,7 @@ export default {
   async updateProduct(obj, id) {
     try {
       const data = await axios.put(`/products/${id}`, obj);
-      //console.log("data", data);
-      return data;
+      return data.data.product;
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -50,7 +46,6 @@ export default {
   async deleteProduct(id) {
     try {
       const data = await axios.delete(`/products/${id}`);
-      //console.log("data", data);
       return data;
     } catch (error) {
       console.log(error);

@@ -32,6 +32,7 @@ class EditForm extends Component {
 
     await this.props.updateProduct(
       {
+        id: id,
         name: name,
         description: description,
         price: price,
@@ -85,7 +86,7 @@ class EditForm extends Component {
           type="reset"
           onClick={this.props.handleChangeEditForm}
         >
-          Cansel
+          Cancel
         </button>
       </form>
     );

@@ -35,8 +35,8 @@ export const postProduct = obj => async dispatch => {
 export const updateProduct = (obj, id) => async dispatch => {
   dispatch(fetchStart());
   try {
-    const response = await services.updateProduct(obj, id);
-    dispatch(updateProductSuccess(response));
+    await services.updateProduct(obj, id);
+    dispatch(updateProductSuccess(obj, id));
   } catch (error) {
     dispatch(fetchError(error.message));
     console.log("error", error);
@@ -44,7 +44,7 @@ export const updateProduct = (obj, id) => async dispatch => {
   }
 };
 
-export const deleteProduct = id => async (dispatch, getState) => {
+export const deleteProduct = id => async dispatch => {
   dispatch(fetchStart());
   try {
     await services.deleteProduct(id);
