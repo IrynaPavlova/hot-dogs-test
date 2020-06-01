@@ -14,17 +14,17 @@ export const getProductsSuccess = value => ({
   payload: { value }
 });
 
-// export const postProductSuccess = obj => ({
-//   type: Type.POST_PRODUCT_SUCCESS,
-//   payload: { obj }
-// });
+export const postProductSuccess = obj => ({
+  type: Type.POST_PRODUCT_SUCCESS,
+  payload: { obj }
+});
 
-// export const updateProductSuccess = (obj, id) => ({
-//   type: Type.UPDATE_PRODUCT_SUCCESS,
-//   payload: { id, obj }
-// });
+export const updateProductSuccess = (obj, id) => ({
+  type: Type.UPDATE_PRODUCT_SUCCESS,
+  payload: { id, obj }
+});
 
-// export const deleteProductSuccess = id => ({
-//   type: Type.COSTS_DELETE_SUCCESS,
-//   payload: { id }
-// });
+export const deleteProductSuccess = id => ({
+  type: Type.DELETE_PRODUCT_SUCCESS,
+  payload: { id }
+});

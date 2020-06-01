@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styles from "./createForm.module.css";
-import services from "../../services/services";
 import { Field, reduxForm } from "redux-form";
 import Input from "../input/Input";
 
@@ -24,12 +23,13 @@ class CreateForm extends Component {
     if (name === "" || description === "" || price === null || image === "") {
       return;
     }
-    await services.createProduct({
+    await this.props.postProduct({
       name: name,
       description: description,
       price: price,
       image: image
     });
+
     this.clearForm();
     this.props.isOpen();
   };

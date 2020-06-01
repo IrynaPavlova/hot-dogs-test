@@ -29,6 +29,7 @@ class Header extends Component {
             <CreateForm
               isOpen={this.handleChangeModal}
               products={this.props.products}
+              postProduct={this.props.postProduct}
             />
           </div>
         )}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./editForm.module.css";
-import services from "../../services/services";
+import { deleteProduct, updateProduct } from "../../redux/operations";
+import { connect } from "react-redux";
 
 class EditForm extends Component {
   state = {
@@ -19,7 +20,7 @@ class EditForm extends Component {
 
   handleDelete = async e => {
     e.preventDefault();
-    await services.deleteProduct(this.state.id);
+    await this.props.deleteProduct(this.state.id);
   };
 
   handleSubmit = async e => {
@@ -28,7 +29,8 @@ class EditForm extends Component {
     if (name === "" || description === "" || price === null || image === "") {
       return;
     }
-    await services.updateProduct(
+
+    await this.props.updateProduct(
       {
         name: name,
         description: description,
@@ -69,9 +71,13 @@ class EditForm extends Component {
         />
 
         <button className={styles.editForm_btn} type="submit">
-          Upgrate
+          Update
         </button>
-        <button className={styles.editForm_btn} onClick={this.handleDelete}>
+        <button
+          type="reset"
+          className={styles.editForm_btn}
+          onClick={this.handleDelete}
+        >
           Delete
         </button>
         <button
@@ -86,4 +92,11 @@ class EditForm extends Component {
   }
 }
 
-export default EditForm;
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = {
+  deleteProduct,
+  updateProduct
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditForm);
