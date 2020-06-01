@@ -3,10 +3,8 @@ const model = require("./productModel.js");
 
 const sequelize = new Sequelize({
   database: "hotdogs",
-  username: "pavlova",
-  password: "qwerty",
-  host: "localhost",
-  port: 5432,
+  username: process.env.USERNAME,
+  password: process.env.PASSWORD,
   dialect: "postgres"
 });
 

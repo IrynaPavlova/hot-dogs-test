@@ -13,4 +13,3 @@ module.exports = (sequelize, Sequelize) => {
   return Product;
 };
 
-///PRICE????
