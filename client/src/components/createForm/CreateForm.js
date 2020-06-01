@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./createForm.module.css";
 import { Field, reduxForm } from "redux-form";
 import Input from "../input/Input";
+import PropTypes from "prop-types";
 
 class CreateForm extends Component {
   state = {
@@ -94,6 +95,12 @@ class CreateForm extends Component {
     );
   }
 }
+
+CreateForm.propTypes = {
+  products: PropTypes.array.isRequired,
+  postProduct: PropTypes.func.isRequired,
+  isOpen: PropTypes.func.isRequired
+};
 
 CreateForm = reduxForm({
   form: "create"

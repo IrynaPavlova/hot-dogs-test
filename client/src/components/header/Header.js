@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./header.module.css";
 import logo from "../../assets/img/logo.png";
 import CreateForm from "../createForm/CreateForm";
+import PropTypes from "prop-types";
 
 class Header extends Component {
   state = {
@@ -37,5 +38,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  products: PropTypes.array.isRequired,
+  postProduct: PropTypes.func.isRequired
+};
 
 export default Header;

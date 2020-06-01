@@ -4,6 +4,7 @@ import { getProducts, postProduct } from "../../redux/operations";
 import Header from "../../components/header/Header";
 import ProductsList from "../../components/productsList/ProductsList";
 import styles from "./productPage.module.css";
+import PropTypes from "prop-types";
 
 const ProductsPage = ({ products, postProduct, getProducts }) => {
   useEffect(() => {
@@ -17,31 +18,11 @@ const ProductsPage = ({ products, postProduct, getProducts }) => {
   );
 };
 
-// class ProductsPage extends Component {
-//   state = {};
-
-//   componentDidMount = () => {
-//     this.props.getProducts();
-//   };
-
-//   componentDidUpdate(prevProps) {
-//     if (this.props.products.length !== prevProps.products.length) {
-//       this.props.getProducts();
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <div className={styles.container}>
-//         <Header
-//           products={this.props.products}
-//           postProduct={this.props.postProduct}
-//         />
-//         <ProductsList products={this.props.products} />
-//       </div>
-//     );
-//   }
-// }
+ProductsPage.propTypes = {
+  products: PropTypes.array.isRequired,
+  postProduct: PropTypes.func.isRequired,
+  getProducts: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => state;
 

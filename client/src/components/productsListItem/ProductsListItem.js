@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./productsListItem.module.css";
 import EditForm from "../editForm/EditForm";
+import PropTypes from "prop-types";
 
 class ProductsListItem extends Component {
   state = {
@@ -44,5 +45,17 @@ class ProductsListItem extends Component {
     );
   }
 }
+
+ProductsListItem.propTypes = {
+  item: PropTypes.shape({
+    createdAt: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string
+  })
+};
 
 export default ProductsListItem;

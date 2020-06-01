@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./editForm.module.css";
 import { deleteProduct, updateProduct } from "../../redux/operations";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class EditForm extends Component {
   state = {
@@ -92,6 +93,20 @@ class EditForm extends Component {
     );
   }
 }
+
+EditForm.propTypes = {
+  item: PropTypes.shape({
+    createdAt: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string
+  }),
+
+  handleChangeEditForm: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => state;
 

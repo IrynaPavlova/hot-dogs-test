@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./productsList.module.css";
 import ProductsListItem from "../productsListItem/ProductsListItem";
+import PropTypes from "prop-types";
 
 class ProductsList extends Component {
   state = {};
@@ -19,5 +20,9 @@ class ProductsList extends Component {
     );
   }
 }
+
+ProductsList.propTypes = {
+  products: PropTypes.array.isRequired
+};
 
 export default ProductsList;
