@@ -8,8 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "debug": "node --inspect index.js",
-    "heroku-postbuild": "cd server && npm install && npm run build"
+    "debug": "node --inspect index.js"
   },
   "repository": {
     "type": "git",
