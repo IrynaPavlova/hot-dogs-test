@@ -12,6 +12,7 @@ const errorHandler = (error, request, response, next) => {
 
 const startServer = port => {
   app
+    .use(express.static("public"))
     .use(bodyParser.urlencoded({ extended: false }))
     .use(bodyParser.json())
     .use(express.json())
