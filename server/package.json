@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "debug": "node --inspect index.js",
-    "build": "ng build",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd server && npm install && npm run build"
   },
   "repository": {
     "type": "git",
