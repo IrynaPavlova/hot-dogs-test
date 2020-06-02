@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node index.js",
     "debug": "node --inspect index.js",
-    "heroku-postbuild": "npm run build"
+    "build": "ng build",
+    "heroku-postbuild": "ng build --prod"
   },
   "repository": {
     "type": "git",
