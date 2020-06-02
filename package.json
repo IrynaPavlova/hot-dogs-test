@@ -1,0 +1,9 @@
+{
+  "main": "cd server&&index.js",
+  "scripts": {
+    "start": "cd server&&node index.js",
+    "debug": "node --inspect index.js",
+    "build": "ng build",
+    "heroku-postbuild": "cd server&&cd client && npm install && npm run build"
+  }
+}
