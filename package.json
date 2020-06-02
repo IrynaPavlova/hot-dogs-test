@@ -4,6 +4,6 @@
     "start": "cd server&&node index.js",
     "debug": "node --inspect index.js",
     "build": "ng build",
-    "heroku-postbuild": "cd server&&cd client && npm install && npm run build"
+    "heroku-postbuild": "cd server && npm install && npm run build"
   }
 }
