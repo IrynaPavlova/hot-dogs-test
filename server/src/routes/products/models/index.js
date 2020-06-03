@@ -5,8 +5,9 @@ const sequelize = new Sequelize({
   database: "hotdogs",
   username: process.env.USERNAME,
   password: process.env.PASSWORD,
-  logging: true,
-  dialect: "postgres"
+  host: "localhost",
+  dialect: "postgres",
+  port: 5432
 });
 
 const db = {};
